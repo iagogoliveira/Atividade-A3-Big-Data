@@ -1,0 +1,73 @@
+
+Qual é o número total de pedidos?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+numero_total_pedidos = len(dados['ID Pedido'])
+print(f'O número total de pedidos é: {numero_total_pedidos}')
+
+
+Quais são os diferentes status dos pedidos?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+status_pedidos = dados['Status Pedido'].unique()
+print("Os diferentes status dos pedidos são:")
+for status in status_pedidos:
+    print(status)
+    
+Qual é a distribuição dos diferentes tipos de pagamento?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+distribuicao_pagamentos = dados['Tipo do Pagamento'].value_counts()
+print("A distribuição dos diferentes tipos de pagamento é:")
+print(distribuicao_pagamentos)
+
+
+Qual é o valor médio dos pedidos?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+valor_medio_pedidos = dados['Valor do Pedido'].mean()
+print(f"O valor médio dos pedidos é: R$ {valor_medio_pedidos:.2f}")
+
+
+Quais são as cidades dos vendedores mais frequentes?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+cidades_frequentes = dados['Cidade do Vendedor'].value_counts()
+cidades_top_frequentes = cidades_frequentes.head(5)  # Seleciona as 5 cidades mais frequentes
+
+print("As cidades dos vendedores mais frequentes são:")
+print(cidades_top_frequentes)
+
+Qual é a média de dias até a entrega dos pedidos?
+
+import pandas as pd
+
+caminho_arquivo_dados = 'venv/Tabelas/datasetOlist2.xlsx'
+dados = pd.read_excel(caminho_arquivo_dados, engine='openpyxl')
+
+media_dias_entrega = dados['Dias até Pedido Entregue'].mean()
+print(f"A média de dias até a entrega dos pedidos é: {media_dias_entrega:.2f}")
+
+
+
+
